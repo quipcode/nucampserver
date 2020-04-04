@@ -28,6 +28,7 @@ connect.then(() => console.log('Connected correctly to server'),
   err => console.log(err)
 );
 
+const uploadRouter = require('./routes/uploadRouter');
 
 var app = express();
 
@@ -69,6 +70,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/campsites', campsiteRouter);
 app.use('/promotions', promotionRouter);
 app.use('/partners', partnerRouter);
+app.use('/imageUpload', uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
